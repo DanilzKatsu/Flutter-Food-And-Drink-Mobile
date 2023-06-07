@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_and_drink_mobile/view/screens/home/home.dart';
+import 'package:food_and_drink_mobile/view/screens/home/home_screen.dart';
 
 import 'view/contains/style.dart';
+import 'view/screens/landing/landing_screen.dart';
+import 'view/screens/product_detail/product_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,25 +50,7 @@ class MyApp extends StatelessWidget {
           bodySmall: TextStyle(fontSize: 8.0, fontWeight: FontWeight.bold),
         ),
       ),
-      home: const Home(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Text("Ice Cream on Cooke"),
-            ElevatedButton(onPressed: () {}, child: Text("Test")),
-          ],
-        ),
-      ),
+      home: const LandingScreen(),
     );
   }
 }

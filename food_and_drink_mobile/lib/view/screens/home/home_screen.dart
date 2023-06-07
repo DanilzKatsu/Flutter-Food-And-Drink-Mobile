@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_and_drink_mobile/model/product.dart';
+import 'package:food_and_drink_mobile/view/screens/product_detail/product_detail.dart';
 import '../../contains/style.dart';
 import 'components/food_item.dart';
 import 'components/navigation_bottom_bar.dart';
-import 'components/search_bar.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +62,12 @@ class Home extends StatelessWidget {
               childAspectRatio: 1,
               children: List.generate(fake_data_product.length, (index) {
                 return FoodItem(
+                  press: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => ProductDetailScreen()));
+                  },
                   image: fake_data_product[index].image,
                   name: fake_data_product[index].name,
                   type: fake_data_product[index].type,
