@@ -13,7 +13,7 @@ assets:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
+fonts:
     - family: Poppins
       fonts:
         - asset: assets/font/Poppins/Poppins-Bold.ttf

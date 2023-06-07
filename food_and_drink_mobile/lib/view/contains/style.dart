@@ -14,3 +14,4 @@ const double kBorder1 = 47.0;
 const double kBorder2 = 26.5;
 const double kBorder3 = 19.0;
 const double kBorder4 = 16.0;
+const double kBorder5 = 7.5;

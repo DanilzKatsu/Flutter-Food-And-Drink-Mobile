@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_and_drink_mobile/view/screens/home/home.dart';
 
 import 'view/contains/style.dart';
 
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
           bodySmall: TextStyle(fontSize: 8.0, fontWeight: FontWeight.bold),
         ),
       ),
-      home: const HomeScreen(),
+      home: const Home(),
     );
   }
 }

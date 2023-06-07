@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 class Product {
+  final int id;
   final String name;
   final String type;
   final double rate;
   final String image;
   final List<MaterialProduct> materialProducts;
   Product({
+    required this.id,
     required this.name,
     required this.type,
     required this.rate,
@@ -13,7 +17,8 @@ class Product {
   });
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
+    return {
+      'id': id,
       'name': name,
       'type': type,
       'rate': rate,
@@ -24,17 +29,20 @@ class Product {
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
-      name: map['name'] as String,
-      type: map['type'] as String,
-      rate: map['rate'] as double,
-      image: map['image'] as String,
+      id: map['id'] ?? 0,
+      name: map['name'] ?? '',
+      type: map['type'] ?? '',
+      rate: map['rate']?.toDouble() ?? 0.0,
+      image: map['image'] ?? '',
       materialProducts: List<MaterialProduct>.from(
-        (map['materialProducts'] as List<int>).map<MaterialProduct>(
-          (x) => MaterialProduct.fromMap(x as Map<String, dynamic>),
-        ),
-      ),
+          map['materialProducts']?.map((x) => MaterialProduct.fromMap(x))),
     );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory Product.fromJson(String source) =>
+      Product.fromMap(json.decode(source));
 }
 
 class MaterialProduct {
@@ -67,6 +75,7 @@ class MaterialProduct {
 // ignore: non_constant_identifier_names
 var fake_data_product = [
   Product(
+    id: 1,
     name: "Banana Cake",
     type: "Cake",
     rate: 4.9,
@@ -90,6 +99,7 @@ var fake_data_product = [
     ],
   ),
   Product(
+    id: 2,
     name: "Ice Cream on Cookie",
     type: "Dessert",
     rate: 4.8,
@@ -113,6 +123,7 @@ var fake_data_product = [
     ],
   ),
   Product(
+    id: 3,
     name: "Chocolate Milkshake",
     type: "Drink",
     rate: 5.0,
@@ -136,6 +147,7 @@ var fake_data_product = [
     ],
   ),
   Product(
+    id: 4,
     name: "Avocado Milkshake",
     type: "Drink",
     rate: 4.7,
