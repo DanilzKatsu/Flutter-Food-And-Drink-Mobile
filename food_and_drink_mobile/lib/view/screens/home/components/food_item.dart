@@ -26,9 +26,13 @@ class FoodItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Stack(children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(kBorder4),
-                child: Image.asset(image)),
+            Container(
+              width: 143,
+              height: 126,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(kBorder4),
+                  child: Image.asset(image)),
+            ),
             Positioned(
               top: 10,
               right: 8,
@@ -49,10 +53,10 @@ class FoodItem extends StatelessWidget {
                       color: kWhiteColor,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 2.5),
+                      padding: const EdgeInsets.only(top: 0.0),
                       child: Text(
                         rate.toString(),
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: kWhiteColor,
                             ),
                       ),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:food_and_drink_mobile/model/product.dart';
 
 import '../../../contains/style.dart';
 
 class ItemMaterial extends StatelessWidget {
   const ItemMaterial({
     super.key,
+    required this.data,
   });
-
+  final MaterialProduct data;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,14 +21,14 @@ class ItemMaterial extends StatelessWidget {
               Container(
                 width: 57,
                 height: 57,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: kGreyColor,
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(kBorder3),
                   ),
                   image: DecorationImage(
                     image: AssetImage(
-                      "assets/images/pic7.png",
+                      data.image,
                     ),
                   ),
                 ),
@@ -35,7 +37,7 @@ class ItemMaterial extends StatelessWidget {
               SizedBox(
                 width: 129,
                 child: Text(
-                  "Chocolate Chips",
+                  data.name,
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: kBlackColor,
                         fontWeight: FontWeight.w800,
@@ -45,7 +47,7 @@ class ItemMaterial extends StatelessWidget {
             ],
           ),
           Text(
-            "1 Cup",
+            "${data.serving} Cup",
             style: Theme.of(context).textTheme.labelLarge!.copyWith(
                   fontWeight: FontWeight.w400,
                   color: kGreyColor,

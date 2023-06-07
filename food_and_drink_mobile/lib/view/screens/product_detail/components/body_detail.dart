@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_and_drink_mobile/model/product.dart';
 
 import '../../../components/default_button.dart';
 import '../../../contains/style.dart';
@@ -8,8 +9,10 @@ import 'item_material.dart';
 class BodyDetail extends StatelessWidget {
   const BodyDetail({
     super.key,
+    required this.data,
   });
 
+  final Product data;
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -37,7 +40,7 @@ class BodyDetail extends StatelessWidget {
             children: [
               SizedBox(
                 child: Text(
-                  "Ice Cream on Cooke",
+                  data.name,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         fontWeight: FontWeight.w800,
                       ),
@@ -45,7 +48,7 @@ class BodyDetail extends StatelessWidget {
               ),
               SizedBox(
                 child: Text(
-                  "Dessert",
+                  data.type,
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
@@ -92,13 +95,11 @@ class BodyDetail extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
-                    children: [
-                      ItemMaterial(),
-                      ItemMaterial(),
-                      ItemMaterial(),
-                      ItemMaterial(),
-                      ItemMaterial(),
-                    ],
+                    children: List.generate(
+                      data.materialProducts.length,
+                      (index) =>
+                          ItemMaterial(data: data.materialProducts[index]),
+                    ),
                   ),
                 ),
               ),

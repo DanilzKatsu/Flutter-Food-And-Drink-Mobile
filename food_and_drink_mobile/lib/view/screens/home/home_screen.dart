@@ -4,6 +4,7 @@ import 'package:food_and_drink_mobile/view/screens/product_detail/product_detail
 import '../../contains/style.dart';
 import 'components/food_item.dart';
 import 'components/navigation_bottom_bar.dart';
+import 'components/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,6 +25,21 @@ class HomeScreen extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
                 const Positioned(top: 230, left: 40, child: SearchBar()),
+                Positioned(
+                  top: 100,
+                  left: 61,
+                  child: SizedBox(
+                    width: 252,
+                    child: Text(
+                      '''What do you want
+     to cook today?''',
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayMedium!
+                          .copyWith(color: kWhiteColor),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -66,7 +82,9 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (_) => ProductDetailScreen()));
+                            builder: (_) => ProductDetailScreen(
+                                  product: fake_data_product[index],
+                                )));
                   },
                   image: fake_data_product[index].image,
                   name: fake_data_product[index].name,

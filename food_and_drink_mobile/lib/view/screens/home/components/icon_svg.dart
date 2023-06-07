@@ -28,8 +28,9 @@ class _MySvgIconState extends State<MySvgIcon> {
         });
       },
       child: SvgPicture.asset(
-        height: 24,
         _isSelected ? widget.svgPath : widget.svgPath2,
+        height: 24,
+        width: 24,
         color: _isSelected ? kPrimaryColor : kPrimaryColor,
       ),
     );
